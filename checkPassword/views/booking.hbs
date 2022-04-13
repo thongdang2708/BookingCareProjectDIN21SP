@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title> List </title>
+
+    <style> 
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #96d6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.date-input {
+    margin-top: 50%;
+}
+
+.form-control {
+    position: relative;
+    text-align: center;
+}
+
+.place-input {
+    width: 23vh;
+    line-height: 20px;
+    border: 2px rgba(0,0,0,0.4) solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: inherit;
+    max-width: 100%;
+}
+
+.place-input:focus {
+    outline : none;
+}
+.btn {
+    position: absolute;
+    transform: translateX(-50px);
+    width: 5vh;
+    line-height: 37px;
+    border: 2px rgba(0,0,0,0.4) solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.placeholder {
+    list-style: none;
+    padding: 0;
+    width: 23vh;
+    height: 15vh;
+    background-color: #fff;
+    margin: 0;
+    display: none;
+    border-radius: 5px;
+    margin: 0 auto;
+    max-height: 100%;
+}
+
+.placeholder li {
+    position: relative;
+    padding: 15px 25px;
+    cursor: pointer;
+
+}
+
+.date {
+    margin-left: 50px;
+    max-width: 100px;
+}
+
+.icon {
+    position: absolute;
+}
+
+.placeholder li:focus {
+    outline: none;
+}
+
+.placeholder li:not(:last-of-type) {
+    border-bottom: 1px grey solid;
+}
+.placeholder.active {
+    display: block;
+}
+
+.fa-square-xmark {
+    display: none
+}
+
+.form-control.active .fa-square-xmark {
+    display: block;
+    height: 37px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.form-control.active .fa-arrow-down {
+    display: none;
+}
+
+.icon {
+    max-width: 20px;
+}
+
+
+
+.booking-date.active .icon {
+    display: none;
+}
+
+.icon.active {
+    display: none;
+}
+
+.booking-value {
+    width : 50vh;
+    height: 70vh;
+    background-color: #f5f5f5;
+    margin-top: 250px;
+    border-radius: 5px;
+    /* display: grid;
+    grid-template-columns: repeat(4,1fr); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 100%;
+    border:  2px black solid;
+    padding: 13px 20px;
+    margin-bottom: 20px;
+}
+
+/* .btn {
+    padding: 13px 20px;
+    display: inline-block;
+    width: 15%;
+    cursor: pointer;
+} */
+
+.button-click-date {
+    /* padding: 13px 20px;
+    background-color: lightblue;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    width: 200px; */
+    display: flex;
+    flex-direction: row;
+    border: 0px green solid;
+    text-decoration: none;
+    width: 20vh;
+    height: 5vh;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.button-click-date.blue {
+    padding: 13px 20px;
+    background-color: lightblue;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.button-click-date.red.animated-btn {
+    padding: 13px 20px;
+    background-color: brown;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #0000;
+    cursor: not-allowed;
+}
+
+.button-click-date.red {
+    padding: 13px 20px;
+    background-color: brown;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    cursor: not-allowed;
+    visibility: hidden;
+}
+
+.button-click-date.animated-btn .button {
+    visibility: hidden;
+    width: 20vh;
+    height: 5vh;
+}
+
+
+.animated-btn {
+    /* background-image: linear-gradient(to right, grey 0%, #f5f5f5 10%, #f5f5f5 20%, grey 40%, grey 100%);
+    background-position: 200% 100%; */
+    color:  #0000;
+    opacity: 0.7s;
+    animation: bounce 2.5s linear infinite alternate;
+}
+
+
+@keyframes bounce {
+    0% {
+        background-color: hsl(200,20%,70%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 90%);
+    }
+}
+
+.button.red {
+    background-color: lightcoral;
+    border: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.button {
+    background-color: 20px;
+    background-color: lightblue;
+    cursor: pointer;
+    border: 0;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.button:focus {
+    outline : none;
+}
+
+
+    </style>
+</head>
+<body>
+    
+      <div class="container">
+    <div class="date-input">
+    <div id="form-control" class="form-control">
+        <input type="text" id="place-input" class='place-input animated-btn' class="place-input">
+        <button id="button" class="btn animated-btn">
+            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-square-xmark"></i>
+        </button>
+
+    </div>
+
+    <ul class="placeholder" id="placeholder">
+
+
+    </ul>
+        
+    </div>
+
+    <div class="booking-value">
+
+
+
+      
+
+
+
+    </div>
+    </div>
+
+
+    <script>
+
+    let data = [{"date" : 2, "month" : 4 , "year" : 2022, "start_time" : "09:30", "end_time" : "10:00"},
+    {"date" : 4, "month" : 4, "year" : 2022, "start_time" : "10:30", "end_time" : "11:00"},
+    {"date" : 4, "month" : 4, "year" : 2022, "start_time" : "11:30", "end_time" : "12:00"}
+];
+    let input = document.getElementById('place-input');
+let booking_list = document.querySelector('.booking-value');
+let button = document.getElementById('button');
+let placeholder = document.getElementById('placeholder');
+let form_control = document.querySelector('.form-control');
+let booking_value = document.querySelector('.booking-value');
+
+// Button Event Listener
+button.addEventListener('click', (et) => {
+    et.preventDefault();
+
+    button.parentNode.classList.toggle('active');
+    placeholder.classList.toggle('active');
+
+})
+
+let arrayrong = [];
+let arrayrongTwo = [];
+let arrayrongThree = [];
+//Update current dates
+fetchTime();
+
+function fetchTime () {
+
+    let newDate = new Date();
+
+    let year = newDate.getFullYear();
+    let day = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let date = newDate.toLocaleDateString('en-us', {'weekday' : 'long'});
+    newDate.setDate(newDate.getDate() + 1);
+    let nextday = newDate.getDate();
+    let nextmonth = newDate.getMonth() + 1;
+    let nextyear = newDate.getFullYear();
+    let nextDate = newDate.toLocaleDateString('en-us', {'weekday' : 'long'});
+    if (date != 'Sunday') {
+        input.value =  date + ' ' + day + '/' + month + '/' + year;
+    } else if (date == 'Sunday') {
+        input.value =  nextDate + ' ' + nextday + '/' + nextmonth + '/' + nextyear;
+    }
+
+    // input.value = date + ' ' + day + '/' + month;
+
+    for (let i=0; i<=2; i++) {
+        let newDate = new Date();
+        newDate.setDate(newDate.getDate() + i);
+        let day = newDate.getDate();
+        let month = newDate.getMonth() + 1;
+        let date = newDate.toLocaleDateString('en-us', {'weekday' : 'long'});
+
+        if (date != 'Sunday') {
+       
+        let li = document.createElement('li');
+        li.classList.add('booking-date');
+        li.innerHTML = `
+        <div class='icon'>
+        <i class="fa-solid fa-square-check"></i>
+        </div>
+
+        <div class='date' date=${date} day=${day} month=${month} year=${year}>
+            <strong>   ${date} ${day}/${month}/${year}        </strong>
+        </div>
+        `
+        placeholder.appendChild(li);
+    } 
+    }
+
+    setWidthForPlaceholder();
+    clickButtonForEachDate();
+    clickToChangeDate();
+    setBookingValues();
+   
+}
+
+
+
+//Set Booking Values;
+function setBookingValues () {
+    arrayrong = [];
+    for (let i=9; i<=17;i+=0.5) {
+      
+        let integerNumbers = i.toString().split('.')[0];
+
+        let decimalNumbers = i - Math.floor(i);
+       
+        let stringNumbers = '';
+        if (decimalNumbers === 0) {
+            stringNumbers += integerNumbers + ':' + '00'
+        } else {
+            stringNumbers += integerNumbers + ':' + (decimalNumbers*60);
+        } 
+        
+    
+       arrayrong.push(stringNumbers);
+
+    }
+
+    arrayrongTwo = [];
+    for (let j=0; j<=arrayrong.length;j++) {
+        let emptyArray = arrayrong.slice(j,j+2);
+
+        arrayrongTwo.push(emptyArray);
+    }
+
+    arrayrongTwo.splice(-2,1);
+    arrayrongTwo.splice(-1,1);
+
+    
+
+    addHoursToBookingValues();
+
+}
+
+//Add hour boxes to booking-value placeholder
+
+function addHoursToBookingValues () {
+
+    console.log(input.value);
+
+    let date = Number(input.value.split(' ')[1].split('/')[0]);
+    let month = Number(input.value.split(' ')[1].split('/')[1]);
+    let year = Number(input.value.split(' ')[1].split('/')[2]);
+    
+    booking_value.innerHTML = '';
+    arrayrongTwo.forEach(data => {
+      
+        let start_time = data[0];
+
+        let end_time = data[1];
+
+        let a = document.createElement('a');
+        a.classList.add('button-click-date');
+        a.href = `/form?1|${date}|${month}|${year}|${start_time}|${end_time}`;
+        a.setAttribute('date',date);
+        a.setAttribute('month',month);
+        a.setAttribute('start_time',start_time);
+        a.setAttribute('end_time',end_time);
+        a.setAttribute('year',year);
+
+        let button = document.createElement('button');
+        button.classList.add('button');
+        button.classList.add('animated-btn');
+        button.innerText =  `${data[0]} - ${data[1]}`;
+        a.appendChild(button);
+        //a.innerText = `${data[0]} - ${data[1]}`;
+        booking_value.appendChild(a);
+    })
+    // let res = await fetch('list.json');
+    // let data = await res.json();
+
+    // let start_times = data.map(info => info.start_time);
+    // let end_times = data.map(info => info.end_time);
+    
+    // arrayrongThree = [];
+    // start_times.forEach((start,index) => {
+    //     end_times.forEach((end,indexTwo) => {
+    //         if (index === indexTwo){
+    //             arrayrongThree.push([start,end]);
+    //         }
+    //     })
+    // })
+    
+    checkBookedHours();
+  
+}
+
+setInterval(animatedButton,7500);
+function animatedButton () {
+    let allButtons = document.querySelectorAll('.animated-btn');
+
+
+    allButtons.forEach(button => button.classList.remove('animated-btn'),
+    );
+    
+}
+
+
+
+async function checkBookedHours () {
+    let allBookingDates = document.querySelectorAll('.button-click-date');
+
+    //let res = await fetch('list.json');
+    //let data = await res.json();
+
+    allBookingDates.forEach(bookingdate => {
+        
+        let year = bookingdate.getAttribute('year');
+        let date = bookingdate.getAttribute('date');
+        let month = bookingdate.getAttribute('month');
+        let start_time = bookingdate.getAttribute('start_time').length < 5 ? '0' + bookingdate.getAttribute('start_time') : bookingdate.getAttribute('start_time');
+        let end_time = bookingdate.getAttribute('end_time').length < 5 ? '0' + bookingdate.getAttribute('end_time') : bookingdate.getAttribute('end_time');
+        
+        if (data.some(info => info.date == date & info.month == month & info.year == year & info.start_time == start_time & info.end_time == end_time)) {
+        //    bookingdate.classList.add('red');
+                bookingdate.querySelector('.button').disabled = true;
+                bookingdate.querySelector('.button').classList.add('red');
+        } 
+
+
+    })
+    blockPost();
+
+}
+
+function blockPost () {
+    let allBlocks = document.querySelectorAll('#block-post');
+
+   allBlocks.forEach(block => {
+       block.setAttribute('disabled',true);
+       console.log(block);
+   })
+}
+
+//Set height for Placeholder Box
+
+function setWidthForPlaceholder () {
+
+   let allBookingDates = placeholder.querySelectorAll('.booking-date');
+
+    if (allBookingDates.length < 3) {
+        placeholder.style.height = '14vh';
+    } else if (allBookingDates.length >= 3){
+        placeholder.style.height = '20vh';
+       
+    }
+}
+
+
+//Click to change each date
+function clickButtonForEachDate() {
+
+    let allDatesInList = document.querySelectorAll('.booking-date');
+
+    allDatesInList.forEach(date => {
+        
+       let dateEl = date.querySelector('.date').innerText.trim();
+
+       if (dateEl != input.value.trim()) {
+           date.classList.add('active');
+       } 
+        
+    })
+    
+}
+
+
+//Click to change date
+function clickToChangeDate () {
+    
+    let bookingDates = document.querySelectorAll('.booking-date');
+   
+  
+
+    bookingDates.forEach(bookingdate => {
+        
+
+        bookingdate.addEventListener('click', (et) => {
+            
+            
+            bookingDates.forEach(bookingDateTwo => {
+                if (bookingDateTwo.className.includes('active') === false) {
+                    bookingDateTwo.classList.add('active');
+                }
+            })
+
+            input.value = '';
+            et.preventDefault();
+           
+
+            placeholder.classList.remove('active');
+            form_control.classList.remove('active');
+            let date = bookingdate.querySelector('.date').getAttribute('date');
+            let day = bookingdate.querySelector('.date').getAttribute('day');
+            let month = bookingdate.querySelector('.date').getAttribute('month');
+            let year = bookingdate.querySelector('.date').getAttribute('year');
+            
+            input.value = date + ' ' + day + '/' + month + '/' + year;
+            
+            if (bookingdate.querySelector('.date').innerText.trim() == input.value.trim()) {
+                bookingdate.classList.remove('active');
+            } else if (bookingdate.querySelector('.date').innerText.trim() != input.value.trim()) {
+                bookingdate.classList.add('active');
+            } 
+
+            setBookingValues();
+        })
+    })
+
+}
+
+</script>
+</body>
+</html>

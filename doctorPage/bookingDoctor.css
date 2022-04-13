@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+   
+}
+
+body {
+    width: 120rem;
+    margin: 0;
+    background-color: white;
+}
+
+.logo-image {
+    width: 10rem;
+}
+
+.header {
+
+    width: 120rem;
+    /* overflow-x: hidden; */
+    padding: 13px 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.left-side {
+    display: flex;
+    width: 15rem;
+    z-index: 1;
+}
+
+.bookmark {
+    z-index: -1;
+}
+
+.logo-image {
+    margin-left: 30px;
+}
+
+.bookmark {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar-element {
+    width: 12rem;
+    cursor: pointer;
+    height: 100%;
+    padding: 4px 8px;
+    border-right: 1px #eee solid;
+}
+
+.nav-bar-element:hover {
+    background-color: rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+/* .nav-bar-element:first-child {
+    border-left: 1px #eee solid;
+} */
+
+
+
+.nav-bar-element:focus {
+    outline: none;
+}
+
+.right-side {
+    display: flex;
+    height: 100%;
+    margin-top: 0;
+    z-index: 1;
+}
+
+.first-child {
+    border-left: 1px #eee solid;
+}
+
+.upper-part {
+    font-weight: bold;
+}
+
+.navigation-bar {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 100;
+    top: 0;
+}
+
+.nav-bar {
+    cursor: pointer;
+}
+.navigation-bar.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.navigation-container {
+    position: fixed;
+    background-color: white;
+    margin: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30vh;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 100;
+}
+
+.navigation-container.active {
+    transform: translateX(0);
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.menu-element {
+    z-index: 1;
+}
+
+.menu-list li {
+    padding: 13px 20px;
+    border-bottom: 1px #eee solid;
+    font-size: 18px;
+}
+
+.menu-element.third {
+    border: 0;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #45c3d2;
+}
+.social-media-icon {
+    height: 3vh;
+}
+
+.menu-element.brown {
+    background-color:  #f9f9f9;
+    color: black;
+    font-weight: normal;
+    border: 0;
+}
+
+
+
+.social-media {
+    padding: 13px 20px;
+}
+
+.doctor-image {
+    border-radius: 50%;
+    height: 120px;
+}
+
+.doctor-booking-info-part {
+    width: 120rem;
+    overflow-x: hidden;
+    background-color: #fff;
+    border-top: 1px #eee solid;
+}
+
+.doctor-booking-info {
+    margin: 0 auto;
+    width: 30%;
+    display: flex;
+    padding: 20px 30px;
+}
+
+.detail-booking {
+    margin-left: 50px;
+}
+
+.doctor-title-and-name {
+    color:#45c3d2;
+}
+
+.detail-booking p {
+    font-weight: bold;
+}
+
+.common-box {
+    font-weight: normal;
+}
+
+.frame-for-form {
+    width: 120rem;
+    border: 1px #eee solid;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    background-color: #fff;
+}
+
+.form-box {
+    padding: 20px 30px;
+    border: 2px black solid;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    background-color: #f5f7fa;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}  
+
+.label {
+    font-weight: bold;
+}
+
+.common-box {
+    margin: 20px 0;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px #eee solid;
+    padding: 15px 20px;
+}
+
+.common-box:focus {
+    outline: none;
+}
+
+.submit {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    padding: 13px 20px;
+    border-radius: 10px;
+    border: 1px black solid;
+    cursor: pointer;
+    
+}
+
+.submit:focus {
+    outline: none;
+}
+
+.submit:active {
+    transform: scale(0.98);
+}
+/* .common-box::placeholder {
+    padding: 8px 13px;
+} */
+
+.confirm {
+    font-weight: bold;
+}
+
+.footer {
+    font-weight: bold;
+    width: 120rem;
+    background-color:#45c3d2;
+    margin: 0;
+    padding: 13px 26rem;
+}

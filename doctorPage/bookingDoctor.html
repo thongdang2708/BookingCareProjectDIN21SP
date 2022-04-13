@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./bookingDoctor.css">
+    <title> Booking Doctor </title>
+</head>
+<body>
+    
+    <header id="header" class="header"> 
+        
+    <div class="left-side">
+        <i class="fa-solid fa-bars fa-2x" id="nav-bar" class="nav-bar"></i> 
+        <a href="#"> <img src="https://bookingcare.vn/assets/icon/bookingcare-2020.svg" alt="" class="logo-image"></a>
+        
+    </div>
+
+    <div class="right-side">
+
+        <a href="#" class="bookmark">
+            <div class="nav-bar-element first-child">
+                <p class="upper-part"> Specialist </p>
+                <p class="lower-part"> Find a doctor by specialty </p>
+            </div>
+        </a>
+
+        <a href="#" class="bookmark">
+            <div class="nav-bar-element">
+                <p class="upper-part"> Health facilities </p>
+                <p class="lower-part"> Choose hospital clinic </p>
+            </div>
+        </a>
+
+        <a href="#" class="bookmark">
+            <div class="nav-bar-element">
+                <p class="upper-part"> Doctor </p>
+                <p class="lower-part"> Choose a good doctor </p>
+            </div>
+        </a>
+
+
+
+    </div>
+
+    </header>
+
+    <div class="navigation-bar">
+    </div> 
+        <div class="navigation-container">
+        <ul class="menu-list">
+           <a href="#"> <li class="menu-element"> Home Page </li> </a>    
+          
+           <a href="#"> <li class="menu-element third"> Contact For Cooperation</li> </a> 
+
+        </ul>
+
+        <div class="social-media">
+            <img src="https://bookingcare.vn/themes/app1912/assets/img/social/youtube-square.svg" alt="" class="social-media-icon">
+            <img src="https://bookingcare.vn/themes/app1912/assets/img/social/facebook-square.svg" alt="" class="social-media-icon">
+
+        </div>
+    </div>
+
+    <main id="main" class="main"> 
+
+       <div class="doctor-booking-info-part">
+
+        <div class="doctor-booking-info">
+
+            <img src="" alt="" class="doctor-image" id="doctor-image">
+
+            <div class="detail-booking">
+
+                <p> Schedule a contact schedule </p>
+
+                <h3 class="doctor-title-and-name"> <span class="doctor-title" id="doctor-title">  </span> || <span class="doctor-name" id="doctor-name">  </span></h3>
+
+                <p class="booking-detail"> <span class="start-time" id="start-time">  </span> - <span class="end-time" id="end-time">  </span> - <span class="weekday" id="weekday">  </span> - <span class="date" id="date">  </span>/<span class="month" id="month">  </span>/<span class="year" id="year"> </span></p>
+
+            </div>
+
+
+
+
+        </div>
+       </div>
+
+    <div class="frame-for-form">
+    
+    <div class="form-box">
+    <h2> Patient Information To Book </h2>
+
+    <form action="/submitform" method="POST" id="form" class="form">
+    
+    <label class="label"> Doctor ID: </label> <br>
+    <input type="number" name="doctorid" id="doctor-id" class="common-box" readonly>  <br>
+
+    <label class="label"> Date: </label> <br>
+    <input type="text" name="date" id="insert-date" class="common-box" readonly> <br>
+
+    <label class="label"> Start Time: </label> <br>
+    <input type="text" name="starttime" id="start" class="common-box" readonly> <br>
+
+    <label class="label"> End Time: </label> <br>
+    <input type="text" name="endtime" id="end" class="common-box" readonly> <br>
+    <label class="label"> First Name: </label> <br>
+    <input type="text" name="firstname" id="first-name" class='common-box' placeholder= 'Please enter your first name...!' required> <br>
+
+    <label class="label"> Last Name: </label> <br>
+    <input type="text" name="lastname" id="last-name" class='common-box'placeholder="Please enter your last name...!" required> <br>
+
+    <label class="label"> City: </label> <br>
+    <input type="text" name="city" id="city" class="common-box" placeholder="Please enter your city in where you live...!"> <br>
+
+    <label class="label"> Phone Number: </label> <br>
+    <input type="text" name="phonenumber" id="phone-number" class="common-box" placeholder="Please enter your phone number...!" required> <br>
+
+    <label class="label"> Email: </label> <br>
+    <input type="email" name="email" id="email" class="common-box" placeholder="Please enter your email...!" required> <br>
+
+    <div class="radio-box">
+    <input type="radio" name="gender" id="male" value="male" required>
+    <label for="male" id="male-text" class="label" > Male </label>
+    
+   
+    <input type="radio" name="gender" id="female" value="female" required>
+    <label for="female" id="female-text" class="label" > Female </label>
+</div>  
+
+    <button type="submit" id="submit" class="submit"> Submit </button>
+    <p class="confirm"> By confirming your booking, you fully agree to our Terms of Service! </p>
+    </form>
+
+
+    </div>
+</div>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <p class="copyright"> &#169; 2022 BookingCare. </p>
+
+        <p class="support"> <i class="fa-solid fa-phone"></i> Support: 090-8134-8239 </p>
+    </footer>
+
+
+
+    <script src="./bookingDoctor.js"></script>
+    <script src="./loadDataForBooking.js"></script>
+</body>
+</html>

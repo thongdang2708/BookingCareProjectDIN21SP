@@ -1,0 +1,4 @@
+[{"date" : 1, "month" : 4 , "year" : 2022, "start_time" : "09:30", "end_time" : "10:00"},
+    {"date" : 4, "month" : 4, "year" : 2022, "start_time" : "10:30", "end_time" : "11:00"},
+    {"date" : 4, "month" : 4, "year" : 2022, "start_time" : "11:30", "end_time" : "12:00"}
+]

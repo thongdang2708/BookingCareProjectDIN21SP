@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Successfully! </h1>
+
+<div class="id" idNumber={{id}}> </div>
+
+    <main id="main">
+        
+
+
+        <h1> Log In </h1>
+
+
+
+    </main>
+
+</div>
+
+    <script>
+        let idNum = document.querySelector('.id');
+
+        let num = idNum.getAttribute('idNumber');
+        let main = document.getElementById('main');
+        console.log(num);
+        
+        fetchPost();
+
+        async function fetchPost () {
+
+            let res = await fetch(`http://localhost:3000/user/${num}`);
+
+            let data = await res.json();
+            
+            if (data[0].message) {
+                noUser('No User')
+            } else {
+                fetchUser(data);
+            }
+        }
+
+        function fetchUser (data) {
+
+            data.forEach(user => addUserToDom(user));
+        }
+
+        function addUserToDom (user) {
+
+            let newDiv = document.createElement('div');
+
+            newDiv.classList.add('user-info')
+
+            newDiv.innerHTML = `
+                <strong class='username'>  Hello ${user.username}. Welcome to Bookingcare.vn!       </strong>
+            `
+
+            main.appendChild(newDiv);
+
+        }
+
+       
+
+
+    </script>
+</body>
+</html>

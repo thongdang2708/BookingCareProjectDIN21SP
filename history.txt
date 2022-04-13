@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="history.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="history-container">
+        <div class="patient-infor">
+            <h2>Putin</h2>
+            <p>putin@gmail.com</p>
+            <span>0821132165465</span>
+            
+        </div>
+        <H1>Resevation History</H1>
+        <ul>
+            <li class="title">
+                <span>Reservation number</span>
+                <span>Date</span>
+                <span>Time</span>
+                <span>Duration</span>
+                <span>Doctor</span>
+            </li>
+            <li class="reservation-infor">
+                <span>Reservation number</span>
+                <span>Date</span>
+                <span>Time</span>
+                <span>Duration</span>
+                <span>Doctor</span>
+            </li>
+            <li class="reservation-infor">
+                <span>Reservation number</span>
+                <span>Date</span>
+                <span>Time</span>
+                <span>Duration</span>
+                <span>Doctor</span>
+            </li>
+            <li class="reservation-infor">
+                <span>Reservation number</span>
+                <span>Date</span>
+                <span>Time</span>
+                <span>Duration</span>
+                <span>Doctor</span>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="history.js"></script>
+</body>
+</html>
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f9f9f9;
+}
+
+.history-container {
+    
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+}
+.history-container h1 {
+    font-size: 60px;
+    margin: 50px auto;
+    color: #45c3d2;
+}
+.history-container ul {
+    list-style: none;
+    font-size: 35px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.history-container ul li {
+    display: flex;
+    justify-content: space-evenly;
+    color: #444;
+    margin-bottom: 50px;
+    border-bottom: 3px #E6E6E9 solid;
+    padding-bottom: 20px;
+}
+.history-container ul li:nth-child(1) {
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+.history-container ul li span {
+    margin-right: 100px;
+}
+.history-container ul li span:nth-child(5) {
+    margin-right: 0px;
+}
+.patient-infor {
+    position: absolute;
+    top: -50px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 3px #E6E6E9 solid;
+    padding: 25px;
+    box-shadow: 3px 6px 6px rgba(red, green, blue, alpha);
+}
+.patient-infor h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.patient-infor p, .patient-infor span {
+    font-size: 25px;
+    margin-bottom: 15px;
+}

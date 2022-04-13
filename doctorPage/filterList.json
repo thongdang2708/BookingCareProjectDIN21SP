@@ -1,0 +1,16 @@
+[{
+    "name" : "Tran Minh Khuyen",
+    "hospital" : "Cho Ray",
+    "specialization" : "Internal medicine"
+},
+{
+    "name" : "Pham Van My",
+    "hospital" : "Hanh Phuc",
+    "specialization" : "Surgery"
+},
+{
+    "name" : "Nguyen Van Sy",
+    "hospital" : "Nhiet doi",
+    "specialization" : "Dermatology"
+}
+]

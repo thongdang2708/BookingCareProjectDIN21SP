@@ -1,0 +1,31 @@
+[{  
+    "id" : 1,
+    "first_name" : "Stephen",
+    "city" : "Ha Noi",
+    "last_name" : "Strange"
+},
+{   
+    "id" : 2,
+    "first_name" : "Hanibal",
+    "city" : "Ho Chi Minh",
+    "last_name" : "Lecter"
+},
+{   
+    "id" : 3,
+    "first_name" : "Liz",
+    "city" : "Ha Noi",
+    "last_name" : "Portman"
+},
+{   
+    "id" : 4,
+    "first_name" : "Quyet",
+    "city" : "Ho Chi Minh",
+    "last_name" : "Ha"
+},
+{
+    "id" : 5,
+    "first_name" : "Dang",
+    "city" : "Ho Chi Minh",
+    "last_name" : "Pham"
+}
+]

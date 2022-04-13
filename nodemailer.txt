@@ -1,0 +1,21 @@
+const transporter = nodemailer.createTransport({
+service: "hotmail",
+auth: {
+	user: "bookingcareprojectoamk@gmail.com"
+	pass: "booking123456"
+	}
+});
+
+const option = {
+from: "bookingcareprojectoamk@gmail.com",
+to: `${email}`,
+subject: "Sending bookingcare reservation",
+text: `your reservation will be ${date} and last from ${starttime} to ${endtime}`
+}
+
+transporter.sendMail(option, function(err, infor) {
+if(err) {
+console.log(err);
+return
+}
+console.log('send' + infor.response)

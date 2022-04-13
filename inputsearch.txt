@@ -1,0 +1,91 @@
+  <div class="showresult">
+            <div class="title title-specilization">
+                <h2>Specilization</h2>
+                <span>LKSJDLFKJSLDFKJ</span>
+                <span>LKSJDLFKJSLDFKJ</span>
+                
+            </div>
+            <div class="title title-hospital">
+                <h2>Hospital</h2>
+                <span>LKSJDLFKJSLDFKJ</span>
+                
+            </div>
+            <div class="title title-doctors">
+                <h2>doctors</h2>
+                <span>LKSJDLFKJSLDFKJ</span>
+                
+            </div>
+
+        </div>
+
+
+
+const searchcontainer = document.querySelector('.search-container')
+const formsearch = document.querySelector('.search')
+const inputsearch = document.querySelector('#search-input')
+
+function showsearch(infor) {
+    const titlespecialization = document.querySelector('title-specialization')
+    const titlehospital = document.querySelector('title-hospital')
+    const titledoctor = document.querySelector('title-doctor')
+    infor.forEach(data => {
+        const spanhospital = document.createElement('span')
+        const spanspecial = document.createElement('span') 
+        const spandoctor = document.createElement('span')
+        spandoctor.innerText = data.first_name + data.last_name
+        spanspecial.innerText = data.specialization_name
+        spanhospital.innerText = data.hospitalname
+        titlespecialization.appendChild(spanspecial)
+        titlehospital.appendChild(spanhospital)
+        titledoctor.appendChild(spandoctor)
+    })
+}
+
+async function getsearchresult(input) {
+     const datajson = await fetch('')
+     const data = await datajson.json()
+     data.forEach(infor => {
+         if(infor.join('').contains(input.trim())) {
+             showsearch(infor)
+         }
+     })
+    
+}
+
+formsearch.addEventListener('input', (e) => {
+    e.preventDefault()
+  
+    getsearchresult(e.target.value)
+})
+
+
+
+.showresult {
+    width: 600px;
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+  justify-content: start;
+    overflow-y: visible;
+}
+.showresult.show {
+    display: flex
+}
+.showresult .title {
+    margin: 15px 20px   ;
+    display: flex;
+    flex-direction: column;
+}
+.showresult .title h2 {
+    margin-bottom: 10px ;
+    
+}
+.showresult .title a {
+    margin-bottom: 15px ;
+    border-bottom: 2px #C3C4C5 solid;
+    padding-bottom: 8px;
+}

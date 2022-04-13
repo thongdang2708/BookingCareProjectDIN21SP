@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Submit Form </title>
+</head>
+
+    <style>
+
+        .fixed {
+            border: 0;
+            width: 100px;
+            background-color: white;
+            border: 1px rgba(0,0,0,0.2) solid; 
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        #form {
+            background-color: aqua;
+        }
+        
+
+    </style>
+<body>
+    
+    <div class="doctor-id"> </div>
+
+    <div class="date"> </div>
+
+    <div class="start-time"></div>
+
+    <div class="end-time"></div>
+
+
+    <form action="/booked" method="post" id="form">
+    
+        <input type="text" name="patient" id="patient-name" required>
+
+        <input type="text" name="city" id="city" required>
+
+        <input type="text" name="doctor" id="doctor-id" class="fixed" readonly>
+
+        <input type="text" name="date" id="date" class="fixed" readonly>
+        <button id="submit" type="submit"> Submit </button>
+
+
+    
+    </form>
+
+    <script>
+
+        let information = location.search.slice(1).split('|');
+
+        let doctor_idNum = Number(information[0]);
+
+        let dateinformation = information[1] + '/' + information[2] + '/' + information[3];
+
+        let dateNum = Number(information[1]);
+
+        let month = Number(information[2]);
+
+        let year = Number(information[3]);
+
+        let start_time = information[4];
+
+        let end_time = information[5];
+
+
+        let form = document.getElementById('form');
+
+        let doctor_id = document.getElementById('doctor-id');
+        let date = document.getElementById('date');
+
+        doctor_id.value =doctor_idNum;
+        date.value = dateinformation;
+        
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

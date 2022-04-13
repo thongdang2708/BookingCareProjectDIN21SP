@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.result-area {
+    background-color: #fff;
+    border: 1px black solid;
+    height: 50vh;
+    width: 80vh;
+    margin-top: 60px;
+}
+
+.button {
+    position: absolute;
+    transform: translateX(-100%);
+    cursor: pointer;
+}
+
+.search-area {
+    text-align: center;
+}
+
+.search {
+    width: 22%;
+    margin-right: 0%;
+}
+.selection-box {
+    background-color: #fff;
+    border: 1px black solid;
+    height: 3.5rem;
+    width: 22%;
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    opacity: 0;
+    margin: 0 auto;
+}
+
+.selection-box.active {
+    display: none;
+}
+
+.selection-box li {
+    /* display: flex; */
+    /* flex-direction: row;
+    align-items: center;
+    justify-content: center; */
+    text-align: center;
+    cursor: pointer;
+}
+
+.selection-box li:not(:last-of-type) {
+    border-bottom: 1px black solid;
+}
+
+
+.fa-square-xmark {
+    display: none;
+}
+
+.search-area.active .fa-square-xmark {
+    display: block
+}
+
+.search-area.active .fa-arrow-down {
+    display: none;
+}
+
+.search-area.active .button{
+    height: 21px;
+}
+
+.search-area.active .selection-box {
+    opacity: 1;
+}
+
+.selection-box.active {
+    display: none;
+}
+
+.icon {
+    width: 10px;
+    display: none;
+}
+
+.script {
+    width: 100px;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 30px;
+
+}
+
+.icon {
+    display: none;
+
+}
+.option.active .icon {
+    display: block;
+    position: absolute;
+    margin-left: 20px;
+}
+
+
+
+
+
